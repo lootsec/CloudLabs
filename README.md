@@ -3,7 +3,7 @@ Terraform files to deploy and replicate vulnerable scenarios in cloud.
 
 The only requirement is an Azure Account with a Subscription and permissions to manage resources!
 
-To run the lab go into the folder with the lab you want to run and run this commands:
+To run the lab go into the folder with the lab you want to run and run the commands:
 
 - terraform init
 - terraform plan 
