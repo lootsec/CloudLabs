@@ -1,47 +1,47 @@
-resource "aws_iam_user" "lootsec-user1" {
+resource "aws_iam_user" "looter1" {
   name  = var.name1
 }
 
-resource "aws_iam_access_key" "lootsec-key1" {
-  user = aws_iam_user.lootsec-user1.name
+resource "aws_iam_access_key" "looter-key1" {
+  user = aws_iam_user.looter1.name
 }
 
-resource "aws_iam_user" "lootsec-user2" {
+resource "aws_iam_user" "looter2" {
   name  = var.name2
 }
 
-resource "aws_iam_access_key" "lootsec-key2" {
-  user = aws_iam_user.lootsec-user2.name
+resource "aws_iam_access_key" "looter-key2" {
+  user = aws_iam_user.looter2.name
 }
 
 
-resource "aws_iam_user" "lootsec-user3" {
+resource "aws_iam_user" "looter3" {
   name  = var.name3
 }
 
-resource "aws_iam_access_key" "lootsec-key3" {
-  user = aws_iam_user.lootsec-user3.name
+resource "aws_iam_access_key" "looter-key3" {
+  user = aws_iam_user.looter3.name
 }
 
 
-resource "aws_iam_user" "lootsec-user4" {
+resource "aws_iam_user" "looter4" {
   name  = var.name4
 }
 
-resource "aws_iam_access_key" "lootsec-key4" {
-  user = aws_iam_user.lootsec-user4.name
+resource "aws_iam_access_key" "looter-key4" {
+  user = aws_iam_user.looter4.name
 }
 
 
 locals {
-  group_name = element(concat(aws_iam_group.lootsec-group1.*.id, [var.group-name1]), 0)
+  group_name = element(concat(aws_iam_group.looter-group1.*.id, [var.group-name1]), 0)
 }
 
-resource "aws_iam_group" "lootsec-group1" {
+resource "aws_iam_group" "looter-group1" {
   name = var.group-name1
 }
 
-resource "aws_iam_group_membership" "lootsec-member1" {
+resource "aws_iam_group_membership" "looter-member1" {
 
   group = local.group_name
   name  = var.group-name1
@@ -51,8 +51,8 @@ resource "aws_iam_group_membership" "lootsec-member1" {
 
 
 resource "aws_iam_user_policy" "inline-policy1" {
-  name = "lootsec-policy-persistance"
-  user = aws_iam_user.lootsec-user2.name
+  name = "looter-policy-persistance"
+  user = aws_iam_user.looter2.name
   
   policy = <<EOF
 {
@@ -74,8 +74,8 @@ EOF
 
 
 resource "aws_iam_user_policy" "inline-policy2" {
-  name = "lootsec-policy-privilege-esc"
-  user = aws_iam_user.lootsec-user3.name
+  name = "looter-policy-privilege-esc"
+  user = aws_iam_user.looter3.name
 
   policy = <<EOF
 {
@@ -97,7 +97,7 @@ EOF
 
 
 resource "aws_iam_policy" "managed-policy1" {
-  name        = "lootsec-assumerole-policy"
+  name        = "looter-assumerole-policy"
   description = "Assume Role Policy for User"
 
   policy = <<EOF
@@ -119,19 +119,19 @@ EOF
 }
 
 resource "aws_iam_user_policy_attachment" "managed-policy1" {
-  user       = aws_iam_user.lootsec-user4.name
+  user       = aws_iam_user.looter4.name
   policy_arn = aws_iam_policy.managed-policy1.arn
 }
 
 
 resource "aws_iam_group_policy_attachment" "group-managed-policy1" {
-  group      = aws_iam_group.lootsec-group1.name
+  group      = aws_iam_group.looter-group1.name
   policy_arn = "arn:aws:iam::aws:policy/IAMReadOnlyAccess"
 }
 
 
 resource "aws_iam_role" "Assume-Admin-role1" {
-  name = "lootsec-assumerole"
+  name = "looter-assumerole"
 
   assume_role_policy = <<EOF
 {
@@ -140,7 +140,7 @@ resource "aws_iam_role" "Assume-Admin-role1" {
     {
       "Action": "sts:AssumeRole",
       "Principal": {
-        "AWS": "${aws_iam_user.lootsec-user4.arn}"
+        "AWS": "${aws_iam_user.looter4.arn}"
       },
       "Effect": "Allow",
       "Sid": ""

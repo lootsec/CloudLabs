@@ -1,78 +1,78 @@
-output "lootsec-user1_iam_user_name" {
+output "looter1_iam_user_name" {
   description = "The user's name"
-  value       = element(concat(aws_iam_user.lootsec-user1.*.name, [""]), 0)
+  value       = element(concat(aws_iam_user.looter1.*.name, [""]), 0)
 }
 
 
-output "lootsec-user1_iam_access_key_id" {
+output "looter1_iam_access_key_id" {
   description = "The access key ID"
-  value = element(concat(aws_iam_access_key.lootsec-key1.*.id, [""]), 0)
+  value = element(concat(aws_iam_access_key.looter-key1.*.id, [""]), 0)
 }
 
 
-output "lootsec-user1_iam_access_key_secret" {
+output "looter1_iam_access_key_secret" {
   #sensitive = true
   description = "The access key secret"
-  value       = nonsensitive(element(concat(aws_iam_access_key.lootsec-key1.*.secret, [""]), 0))
+  value       = nonsensitive(element(concat(aws_iam_access_key.looter-key1.*.secret, [""]), 0))
 } 
 
 
 
-output "lootsec-user2_iam_user_name" {
+output "looter2_iam_user_name" {
   description = "The user's name"
-  value       = element(concat(aws_iam_user.lootsec-user2.*.name, [""]), 0)
+  value       = element(concat(aws_iam_user.looter2.*.name, [""]), 0)
 }
 
 
-output "lootsec-user2_iam_access_key_id" {
+output "looter2_iam_access_key_id" {
   description = "The access key ID"
-  value = element(concat(aws_iam_access_key.lootsec-key2.*.id, [""]), 0)
+  value = element(concat(aws_iam_access_key.looter-key2.*.id, [""]), 0)
 }
 
 
-output "lootsec-user2_iam_access_key_secret" {
+output "looter2_iam_access_key_secret" {
   #sensitive = true
   description = "The access key secret"
-  value       = nonsensitive(element(concat(aws_iam_access_key.lootsec-key2.*.secret, [""]), 0))
+  value       = nonsensitive(element(concat(aws_iam_access_key.looter-key2.*.secret, [""]), 0))
 } 
 
 
 
-output "lootsec-user3_iam_user_name" {
+output "looter3_iam_user_name" {
   description = "The user's name"
-  value       = element(concat(aws_iam_user.lootsec-user3.*.name, [""]), 0)
+  value       = element(concat(aws_iam_user.looter3.*.name, [""]), 0)
 }
 
 
-output "lootsec-user3_iam_access_key_id" {
+output "looter3_iam_access_key_id" {
   description = "The access key ID"
-  value = element(concat(aws_iam_access_key.lootsec-key3.*.id, [""]), 0)
+  value = element(concat(aws_iam_access_key.looter-key3.*.id, [""]), 0)
 }
 
 
-output "lootsec-user3_iam_access_key_secret" {
+output "looter3_iam_access_key_secret" {
   #sensitive = true
   description = "The access key secret"
-  value       = nonsensitive(element(concat(aws_iam_access_key.lootsec-key3.*.secret, [""]), 0))
+  value       = nonsensitive(element(concat(aws_iam_access_key.looter-key3.*.secret, [""]), 0))
 } 
 
 
 
 
-output "lootsec-user4_iam_user_name" {
+output "looter4_iam_user_name" {
   description = "The user's name"
-  value       = element(concat(aws_iam_user.lootsec-user4.*.name, [""]), 0)
+  value       = element(concat(aws_iam_user.looter4.*.name, [""]), 0)
 }
 
 
-output "lootsec-user4_iam_access_key_id" {
+output "looter4_iam_access_key_id" {
   description = "The access key ID"
-  value = element(concat(aws_iam_access_key.lootsec-key4.*.id, [""]), 0)
+  value = element(concat(aws_iam_access_key.looter-key4.*.id, [""]), 0)
 }
 
 
-output "lootsec-user4_iam_access_key_secret" {
+output "looter4_iam_access_key_secret" {
   #sensitive = true
   description = "The access key secret"
-  value       = nonsensitive(element(concat(aws_iam_access_key.lootsec-key4.*.secret, [""]), 0))
+  value       = nonsensitive(element(concat(aws_iam_access_key.looter-key4.*.secret, [""]), 0))
 } 
