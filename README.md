@@ -21,3 +21,4 @@ Azure labs:
 
 # To-do 
 - add information about the aws/iam lab
+- add information about the aws/vpc
