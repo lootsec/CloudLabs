@@ -72,7 +72,7 @@ resource "aws_key_pair" "prod-key-pair" {
 }
 
 resource "aws_instance" "prod-server" {
-    ami = "ami-0b59bfac6be064b78"
+    ami = "${var.AMI_ID}"
     instance_type = "t2.micro"
     subnet_id = "${aws_subnet.prod-subnet-public-1.id}"
     vpc_security_group_ids = ["${aws_security_group.prod-ssh-allowed.id}"]
